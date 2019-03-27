@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new HomeFragment(), "Home");
         adapter.addFragment(new TogetherFragment(), "Together");
         adapter.addFragment(new DiscoverFragment(), "Discover");
+
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(3);
     }

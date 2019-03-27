@@ -21,8 +21,8 @@ import com.example.fitnesssdemo.R;
  * A simple {@link Fragment} subclass.
  */
 public class DiscoverFragment extends Fragment {
-    ViewFlipper viewFlipper;
-    ImageButton btnPre, btnNext;
+    ViewFlipper viewFlipper, viewFlipper2;
+    ImageButton btnPre, btnNext, btnProductPre, btnProductNext;
 
 
     @Override
@@ -62,6 +62,36 @@ public class DiscoverFragment extends Fragment {
 
             }
         });
+
+        viewFlipper2 = (ViewFlipper) view.findViewById(R.id.viewFlipper2);
+        btnProductPre = (ImageButton) view.findViewById(R.id.btn_product_pre);
+        btnProductNext = (ImageButton) view.findViewById(R.id.btn_product_next);
+        viewFlipper2.setFlipInterval(5000);
+        viewFlipper2.setAutoStart(true);
+        btnProductNext.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if (viewFlipper2.isAutoStart()){
+                    viewFlipper2.stopFlipping();
+                    viewFlipper2.showNext();
+                    viewFlipper2.startFlipping();
+                    viewFlipper2.setAutoStart(true);
+                }
+            }
+        });
+        btnProductPre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (viewFlipper2.isAutoStart()) {
+                    viewFlipper2.stopFlipping();
+                    viewFlipper2.showPrevious();
+                    viewFlipper2.startFlipping();
+                    viewFlipper2.setAutoStart(true);
+                }
+
+            }
+        });
+
 
         return view;
     }
